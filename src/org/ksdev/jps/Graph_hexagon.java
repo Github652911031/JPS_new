@@ -82,56 +82,74 @@ public class Graph_hexagon<T extends Node>  {
         int y = node.y;
         Set<T> neighbors = new HashSet<>();
 
-        if( y % 2 == 0) {
-            //
-            if(isWalkable(x-1,y)) {
-                neighbors.add(getNode(x-1, y));
-            }
-            //
-            if(isWalkable(x+1, y)) {
-                neighbors.add(getNode(x+1, y));
-            }
-            //
-            if(isWalkable(x,y-1)) {
-                neighbors.add(getNode(x, y-1));
-            }
-            //
-            if(isWalkable(x-1, y+1)) {
-                neighbors.add(getNode(x-1, y+1));
-            }
-            //
-            if(isWalkable(x-1,y-1)) {
-                neighbors.add(getNode(x-1, y-1));
-            }
-            //
-            if(isWalkable(x, y+1)) {
-                neighbors.add(getNode(x, y+1));
-            }
-        } else {
-            //
-            if(isWalkable(x-1,y)) {
-                neighbors.add(getNode(x-1, y));
-            }
-            //
-            if(isWalkable(x+1, y)) {
-                neighbors.add(getNode(x+1, y));
-            }
-            //
-            if(isWalkable(x+1,y-1)) {
-                neighbors.add(getNode(x+1, y-1));
-            }
-            //
-            if(isWalkable(x, y+1)) {
-                neighbors.add(getNode(x, y+1));
-            }
-            //
-            if(isWalkable(x,y-1)) {
-                neighbors.add(getNode(x, y-1));
-            }
-            //
-            if(isWalkable(x+1, y+1)) {
-                neighbors.add(getNode(x+1, y+1));
-            }
+//        if( y % 2 == 0) {
+//            //
+//            if(isWalkable(x-1,y)) {
+//                neighbors.add(getNode(x-1, y));
+//            }
+//            //
+//            if(isWalkable(x+1, y)) {
+//                neighbors.add(getNode(x+1, y));
+//            }
+//            //
+//            if(isWalkable(x,y-1)) {
+//                neighbors.add(getNode(x, y-1));
+//            }
+//            //
+//            if(isWalkable(x-1, y+1)) {
+//                neighbors.add(getNode(x-1, y+1));
+//            }
+//            //
+//            if(isWalkable(x-1,y-1)) {
+//                neighbors.add(getNode(x-1, y-1));
+//            }
+//            //
+//            if(isWalkable(x, y+1)) {
+//                neighbors.add(getNode(x, y+1));
+//            }
+//        } else {
+//            //
+//            if(isWalkable(x-1,y)) {
+//                neighbors.add(getNode(x-1, y));
+//            }
+//            //
+//            if(isWalkable(x+1, y)) {
+//                neighbors.add(getNode(x+1, y));
+//            }
+//            //
+//            if(isWalkable(x+1,y-1)) {
+//                neighbors.add(getNode(x+1, y-1));
+//            }
+//            //
+//            if(isWalkable(x, y+1)) {
+//                neighbors.add(getNode(x, y+1));
+//            }
+//            //
+//            if(isWalkable(x,y-1)) {
+//                neighbors.add(getNode(x, y-1));
+//            }
+//            //
+//            if(isWalkable(x+1, y+1)) {
+//                neighbors.add(getNode(x+1, y+1));
+//            }
+//        }
+        if(isWalkable(x+1,y+1)){
+            neighbors.add(getNode(x+1,y+1));
+        }
+        if(isWalkable(x+1,y)){
+            neighbors.add(getNode(x+1,y));
+        }
+        if(isWalkable(x,y-1)){
+            neighbors.add(getNode(x,y-1));
+        }
+        if(isWalkable(x-1,y-1)){
+            neighbors.add(getNode(x-1,y-1));
+        }
+        if(isWalkable(x-1,y)){
+            neighbors.add((getNode(x-1,y)));
+        }
+        if(isWalkable(x,y+1)){
+            neighbors.add(getNode(x,y+1));
         }
         return neighbors;
 
