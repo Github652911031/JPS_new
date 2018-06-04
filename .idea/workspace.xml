@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9e4bfe3-b0a7-4fa9-ba18-a82e43b26d07" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ksdev/jps/JPSDiagAlways_hexagon.java" afterPath="$PROJECT_DIR$/src/org/ksdev/jps/JPSDiagAlways_hexagon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/ksdev/jps/Node.java" afterPath="$PROJECT_DIR$/src/org/ksdev/jps/Node.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +16,8 @@
       <file leaf-file-name="JPS_hexagon.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/ksdev/jps/JPS_hexagon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1620">
-              <caret line="98" column="25" lean-forward="false" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+            <state relative-caret-position="188">
+              <caret line="132" column="25" lean-forward="false" selection-start-line="132" selection-start-column="25" selection-end-line="132" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -27,31 +25,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JPSDiagAlways.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/ksdev/jps/JPSDiagAlways.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1008">
-              <caret line="56" column="9" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="56" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JPSDiagAlways_hexagon.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JPSDiagAlways_hexagon.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/ksdev/jps/JPSDiagAlways_hexagon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="401" column="13" lean-forward="false" selection-start-line="401" selection-start-column="13" selection-end-line="401" selection-end-column="13" />
+            <state relative-caret-position="-6041">
+              <caret line="92" column="16" lean-forward="true" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/ksdev/jps/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            <state relative-caret-position="270">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -86,8 +74,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/org/ksdev/jps/Graph_hexagon.java" />
-        <option value="$PROJECT_DIR$/src/org/ksdev/jps/JPS_hexagon.java" />
         <option value="$PROJECT_DIR$/src/org/ksdev/jps/Node.java" />
+        <option value="$PROJECT_DIR$/src/org/ksdev/jps/JPS_hexagon.java" />
         <option value="$PROJECT_DIR$/src/org/ksdev/jps/JPSDiagAlways_hexagon.java" />
       </list>
     </option>
@@ -242,12 +230,12 @@
       <workItem from="1527825421373" duration="1347000" />
       <workItem from="1527826926443" duration="1494000" />
       <workItem from="1528029539513" duration="4556000" />
-      <workItem from="1528075568369" duration="24000" />
+      <workItem from="1528075568369" duration="1150000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17716000" />
+    <option name="totallyTimeSpent" value="18842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="25" width="1315" height="743" extended-state="6" />
@@ -651,18 +639,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ksdev/jps/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ksdev/jps/JPSDiagAlways.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="56" column="9" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="56" selection-end-column="9" />
+        <state relative-caret-position="-36">
+          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ksdev/jps/JPS_hexagon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="98" column="25" lean-forward="false" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+        <state relative-caret-position="188">
+          <caret line="132" column="25" lean-forward="false" selection-start-line="132" selection-start-column="25" selection-end-line="132" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -671,16 +667,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ksdev/jps/JPSDiagAlways_hexagon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="401" column="13" lean-forward="false" selection-start-line="401" selection-start-column="13" selection-end-line="401" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/ksdev/jps/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        <state relative-caret-position="-6041">
+          <caret line="92" column="16" lean-forward="true" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
           <folding />
         </state>
       </provider>

@@ -364,6 +364,7 @@ public class JPSDiagAlways_hexagon<T extends Node> extends JPS_hexagon<T> {
                 if(jump(graph.getNode(x+1,y),neighbor,goals)!=null){
                     return neighbor;
                 }
+                return jump(graph.getNode(x+1,y+1),neighbor,goals);
             }else if(x == y && x < 0){
                 if(!graph.isWalkable(x+1,y) && graph.isWalkable(x,y-1)){
                     return neighbor;
@@ -371,6 +372,8 @@ public class JPSDiagAlways_hexagon<T extends Node> extends JPS_hexagon<T> {
                 if(jump(graph.getNode(x-1,y),neighbor,goals)!=null){
                     return neighbor;
                 }
+                return jump(graph.getNode(x-1,y-1),neighbor,goals);
+
             }else if(x == 0 && y > 0){
                 if(!graph.isWalkable(x-1,y-1) && graph.isWalkable(x-1,y)){
                     return neighbor;
@@ -378,6 +381,7 @@ public class JPSDiagAlways_hexagon<T extends Node> extends JPS_hexagon<T> {
                 if(jump(graph.getNode(x+1,y+1),neighbor,goals)!=null){
                     return neighbor;
                 }
+                return jump(graph.getNode(x,y+1),neighbor,goals);
             }else if(x == 0 && y < 0){
                 if(!graph.isWalkable(x+1,y+1) && graph.isWalkable(x+1,y)){
                     return neighbor;
@@ -385,6 +389,7 @@ public class JPSDiagAlways_hexagon<T extends Node> extends JPS_hexagon<T> {
                 if(jump(graph.getNode(x-1,y-1),neighbor,goals)!=null){
                     return neighbor;
                 }
+                return jump(graph.getNode(x,y-1),neighbor,goals);
             }else if(y == 0 && x < 0){
                 if(!graph.isWalkable(x,y-1) && graph.isWalkable(x-1,y-1)){
                     return neighbor;
@@ -392,6 +397,8 @@ public class JPSDiagAlways_hexagon<T extends Node> extends JPS_hexagon<T> {
                 if(jump(graph.getNode(x,y+1),neighbor,goals)!=null){
                     return neighbor;
                 }
+                return jump(graph.getNode(x-1,y),neighbor,goals);
+
             }else if(y == 0 && x > 0){
                 if(!graph.isWalkable(x,y+1) && graph.isWalkable(x+1,y+1)){
                     return neighbor;
@@ -399,6 +406,8 @@ public class JPSDiagAlways_hexagon<T extends Node> extends JPS_hexagon<T> {
                 if(jump(graph.getNode(x,y-1),neighbor,goals)!=null){
                     return neighbor;
                 }
+                return jump(graph.getNode(x+1,y),neighbor,goals);
+
             }
 
         }else{
