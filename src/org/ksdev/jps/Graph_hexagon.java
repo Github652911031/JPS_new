@@ -8,8 +8,9 @@ public class Graph_hexagon<T extends Node>  {
     private int width;
 
 
-    private BiFunction<Node, Node, Double> distance = (a, b) -> Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
-    private BiFunction<Node, Node, Double> heuristic = (a, b) -> Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
+//    private BiFunction<Node, Node, Double> distance = (a, b) -> Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
+    private BiFunction<Node, Node, Double> distance = (a, b) -> Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y,2)*3/4);
+    private BiFunction<Node, Node, Double> heuristic = (a, b) -> Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y,2)*3/4);
     /**
      * By default, will use EUCLIDEAN for distance and heuristic calculations. You can set your own algorithm
      * if you would like to change this.

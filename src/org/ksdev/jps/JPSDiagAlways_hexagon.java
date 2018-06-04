@@ -27,290 +27,147 @@ public class JPSDiagAlways_hexagon<T extends Node> extends JPS_hexagon<T> {
             final int y = node.y;
 
 
-            // get normalized direction of travel
-            final int dx = x - parent.x;
-            final int dy = y - parent.y;
+//            // get normalized direction of travel
+//            final int dx = x - parent.x;
+//            final int dy = y - parent.y;
 
             if (isDiagonal(node)){
-                if(x == y){
-                    if(graph.isWalkable(x+dx,y+dy)){
-                        neighbors.add(graph.getNode(x+dx,y+dy));
+                if(x == y && x > 0){
+                    if(graph.isWalkable(x+1,y+1)){
+                        neighbors.add(graph.getNode(x+1,y+1));
                     }
-                    if(graph.isWalkable(x+dx,y)){
-                        neighbors.add(graph.getNode(x+dx,y));
+                    if(graph.isWalkable(x+1,y)){
+                        neighbors.add(graph.getNode(x+1,y));
                     }
-                    if(!graph.isWalkable(x-dx,y)){
-                        graph.getNode(x,y+dy).setForce(true);
-                        neighbors.add(graph.getNode(x,y+dy));
-                    }
-
-                }else if(x == 0){
-                    if(graph.isWalkable(x,y+dy)){
-                        neighbors.add(graph.getNode(x,y+dy));
-                    }
-                    if(y>0){
-                        if(graph.isWalkable(x+1,y+1)){
-                            neighbors.add(graph.getNode(x+1,y+1));
-                        }
-                        if(!graph.isWalkable(x-1,y-1)){
-                            graph.getNode(x-1,y).setForce(true);
-                            neighbors.add(graph.getNode(x-1,y));
-                        }
-                    }else{
-                        if(graph.isWalkable(x-1,y-1)){
-                            neighbors.add(graph.getNode(x-1,y-1));
-                        }
-                        if(!graph.isWalkable(x+1,y+1)){
-                            graph.getNode(x+1,y).setForce(true);
-                            neighbors.add(graph.getNode(x+1,y));
-                        }
+                    if(!graph.isWalkable(x-1,y)){
+//                        graph.getNode(x,y+1).setForce(true);
+                        neighbors.add(graph.getNode(x,y+1));
                     }
 
-                }else if(y == 0){
-                    if(graph.isWalkable(x+dx,y)){
-                        neighbors.add(graph.getNode(x+dx,y));
+                }else if(x == y && x < 0){
+                    if(graph.isWalkable(x-1,y-1)){
+                        neighbors.add(graph.getNode(x-1,y-1));
                     }
-                    if(x>0){
-                        if(graph.isWalkable(x,y-1)){
-                            neighbors.add(graph.getNode(x,y-1));
-                        }
-                        if(!graph.isWalkable(x,y+1)){
-                            graph.getNode(x+1,y+1).setForce(true);
-                            neighbors.add(graph.getNode(x+1,y+1));
-                        }
-                    }else{
-                        if(graph.isWalkable(x,y+1)){
-                            neighbors.add(graph.getNode(x,y+1));
-                        }
-                        if(!graph.isWalkable(x,y-1)){
-                            graph.getNode(x-1,y-1).setForce(true);
-                            neighbors.add(graph.getNode(x-1,y-1));
-                        }
+                    if(graph.isWalkable(x-1,y)){
+                        neighbors.add(graph.getNode(x-1,y));
+                    }
+                    if(!graph.isWalkable(x+1,y)){
+//                        graph.getNode(x,y-1).setForce(true);
+                        neighbors.add(graph.getNode(x,y-1));
+                    }
+                }else if(x == 0 && y > 0){
+                    if(graph.isWalkable(x,y+1)){
+                        neighbors.add(graph.getNode(x,y+1));
+                    }
+
+                    if(graph.isWalkable(x+1,y+1)){
+                        neighbors.add(graph.getNode(x+1,y+1));
+                    }
+                    if(!graph.isWalkable(x-1,y-1)){
+//                        graph.getNode(x-1,y).setForce(true);
+                        neighbors.add(graph.getNode(x-1,y));
+                    }
+                }else if(x == 0 && y < 0){
+                    if(graph.isWalkable(x,y-1)){
+                        neighbors.add(graph.getNode(x,y-1));
+                    }
+                    if(graph.isWalkable(x-1,y-1)){
+                        neighbors.add(graph.getNode(x-1,y-1));
+                    }
+                    if(!graph.isWalkable(x+1,y+1)){
+//                        graph.getNode(x+1,y).setForce(true);
+                        neighbors.add(graph.getNode(x+1,y));
+                    }
+                }else if(y == 0 && x < 0) {
+                    if (graph.isWalkable(x - 1, y)) {
+                        neighbors.add(graph.getNode(x - 1, y));
+                    }
+                    if (graph.isWalkable(x, y + 1)) {
+                        neighbors.add(graph.getNode(x, y + 1));
+                    }
+                    if (!graph.isWalkable(x, y - 1)) {
+//                        graph.getNode(x - 1, y - 1).setForce(true);
+                        neighbors.add(graph.getNode(x - 1, y - 1));
+                    }
+                }else if(y == 0 && x > 0){
+                    if(graph.isWalkable(x+1,y)){
+                        neighbors.add(graph.getNode(x+1,y));
+                    }
+                    if(graph.isWalkable(x,y-1)){
+                        neighbors.add(graph.getNode(x,y-1));
+                    }
+                    if(!graph.isWalkable(x,y+1)){
+//                        graph.getNode(x+1,y+1).setForce(true);
+                        neighbors.add(graph.getNode(x+1,y+1));
                     }
                 }
 
             }else {
-                if(node.isForce()){
-                    if(x>0 && y>0 && x>y){
-                        if(graph.isWalkable(x+1,y)){
-                            neighbors.add(graph.getNode(x+1,y));
-                        }
-                    }else if(x>0 && y>0 && x<y){
-                        if(graph.isWalkable(x+1,y+1)){
-                            neighbors.add(graph.getNode(x+1,y+1));
-                        }
+                if(x>0 && y>0 && x>y){
+                    if(graph.isWalkable(x+1,y)){
+                        neighbors.add(graph.getNode(x+1,y));
                     }
-                    else if(x<0 && y>0 ){
-                        if(graph.isWalkable(x,y+1)){
-                            neighbors.add(graph.getNode(x,y+1));
-                        }
-                    }else if(x<0 && y<0 && x<y){
-                        if(graph.isWalkable(x-1,y)){
-                            neighbors.add(graph.getNode(x-1,y));
-                        }
-                    }else if(x<0 && y<0 && x>y){
-                        if(graph.isWalkable(x-1,y-1)){
-                            neighbors.add(graph.getNode(x-1,y-1));
-                        }
-                    }else if(x>0 && y<0){
-                        if(graph.isWalkable(x,y-1)){
-                            neighbors.add(graph.getNode(x,y-1));
-                        }
+                    if(!graph.isWalkable(x-1,y-1)){
+                        neighbors.add(graph.getNode(x,y-1));
                     }
-                }else{
-                    if(graph.isWalkable(x+dx,y+dy)){
-                        neighbors.add(graph.getNode(x+dx,y+dy));
+                    if(!graph.isWalkable(x,y+1)){
+                        neighbors.add(graph.getNode(x+1,y+1));
                     }
-                    if(dx==dy){
-                        if(!graph.isWalkable(x,y-dy)){
-                            graph.getNode(x+dx,y).setForce(true);
-                            neighbors.add(graph.getNode(x+dx,y));
-                        }
-                        if(!graph.isWalkable(x-dx,y)){
-                            graph.getNode(x,y+dy).setForce(true);
-                            neighbors.add(graph.getNode(x,y+dy));
-                        }
-                    }else if(dx == 0){
-                        if(y>0){
-                            if(!graph.isWalkable(x+1,y)){
-                                graph.getNode(x+1,y+1).setForce(true);
-                                neighbors.add(graph.getNode(x+1,y+1));
-                            }
-                            if(!graph.isWalkable(x-1,y-1)){
-                                graph.getNode(x-1,y).setForce(true);
-                                neighbors.add(graph.getNode(x-1,y));
-                            }
-                        }else{
-                            if(!graph.isWalkable(x-1,y)){
-                                graph.getNode(x-1,y-1).setForce(true);
-                                neighbors.add(graph.getNode(x-1,y-1));
-                            }
-                            if(!graph.isWalkable(x+1,y+1)){
-                                graph.getNode(x+1,y).setForce(true);
-                                neighbors.add(graph.getNode(x+1,y));
-                            }
-                        }
-
-                    }else if(dy == 0){
-                        if(x>0){
-                            if(!graph.isWalkable(x,y+1)){
-                                graph.getNode(x+1,y+1).setForce(true);
-                                neighbors.add(graph.getNode(x+1,y+1));
-                            }
-                            if(!graph.isWalkable(x-1,y-1)){
-                                graph.getNode(x,y-1).setForce(true);
-                                neighbors.add(graph.getNode(x,y-1));
-                            }
-                        }else{
-                            if(!graph.isWalkable(x,y-1)){
-                                graph.getNode(x-1,y-1).setForce(true);
-                                neighbors.add(graph.getNode(x-1,y-1));
-                            }
-                            if(!graph.isWalkable(x+1,y+1)){
-                                graph.getNode(x,y+1).setForce(true);
-                                neighbors.add(graph.getNode(x,y+1));
-                            }
-                        }
-
+                }else if(x>0 && y>0 && x<y){
+                    if(graph.isWalkable(x+1,y+1)){
+                        neighbors.add(graph.getNode(x+1,y+1));
+                    }
+                    if(!graph.isWalkable(x,y-1)){
+                        neighbors.add(graph.getNode(x+1,y));
+                    }
+                    if(!graph.isWalkable(x-1,y)){
+                        neighbors.add(graph.getNode(x,y+1));
+                    }
+                }
+                else if(x<0 && y>0 ){
+                    if(graph.isWalkable(x,y+1)){
+                        neighbors.add(graph.getNode(x,y+1));
+                    }
+                    if(!graph.isWalkable(x+1,y)){
+                        neighbors.add(graph.getNode(x+1,y+1));
+                    }
+                    if(!graph.isWalkable(x-1,y-1)){
+                        neighbors.add(graph.getNode(x-1,y));
+                    }
+                }else if(x<0 && y<0 && x<y){
+                    if(graph.isWalkable(x-1,y)){
+                        neighbors.add(graph.getNode(x-1,y));
+                    }
+                    if(!graph.isWalkable(x+1,y+1)){
+                        neighbors.add(graph.getNode(x,y+1));
+                    }
+                    if(!graph.isWalkable(x,y-1)){
+                        neighbors.add(graph.getNode(x-1,y-1));
+                    }
+                }else if(x<0 && y<0 && x>y){
+                    if(graph.isWalkable(x-1,y-1)){
+                        neighbors.add(graph.getNode(x-1,y-1));
+                    }
+                    if(!graph.isWalkable(x,y+1)){
+                        neighbors.add(graph.getNode(x-1,y));
+                    }
+                    if(!graph.isWalkable(x+1,y)){
+                        neighbors.add(graph.getNode(x,y-1));
+                    }
+                }else if(x>0 && y<0){
+                    if(graph.isWalkable(x,y-1)){
+                        neighbors.add(graph.getNode(x,y-1));
+                    }
+                    if(!graph.isWalkable(x-1,y)){
+                        neighbors.add(graph.getNode(x-1,y-1));
+                    }
+                    if(!graph.isWalkable(x+1,y+1)){
+                        neighbors.add(graph.getNode(x+1,y));
                     }
                 }
 
             }
 
-//            if( y % 2 == 0){
-//                //水平，偶数行（第一行为0),一个自然邻居,两个强迫邻居
-//                if( dx==1 && dy==0 ){
-//                    if (graph.isWalkable(x+1, y ))
-//                        neighbors.add(graph.getNode(x+1, y ));
-//                    if (!graph.isWalkable(x-1,y-1)){
-//                        neighbors.add(graph.getNode(x,y-1));
-//                    }
-//                    if (!graph.isWalkable(x-1,y+1)){
-//                        neighbors.add(graph.getNode(x,y+1));
-//                    }
-//                }
-//                else if( dx==0 && dy==-1 ){
-//                    if (graph.isWalkable(x-1, y-1))
-//                        neighbors.add(graph.getNode(x-1, y-1));
-//                    if (!graph.isWalkable(x-1, y+1)){
-//                        neighbors.add(graph.getNode(x-1,y));
-//                    }
-//                    if (!graph.isWalkable(x+1,y)){
-//                        neighbors.add(graph.getNode(x,y-1));
-//                    }
-//                }
-//                else if( dx==0 && dy==1 ){
-//                    if (graph.isWalkable(x-1,y+1))
-//                        neighbors.add(graph.getNode(x-1, y+1));
-//                    if (!graph.isWalkable(x+1, y)){
-//                        neighbors.add(graph.getNode(x,y+1));
-//                    }
-//                    if (!graph.isWalkable(x-1,y-1)){
-//                        neighbors.add(graph.getNode(x-1,y));
-//                    }
-//                }
-//                //对角,三个自然邻居
-//                else if( dx==1 && dy==-1 ){
-//                    if (graph.isWalkable(x,y-1)){
-//                        neighbors.add(graph.getNode(x,y-1));
-//                    }
-//                    if (graph.isWalkable(x+1,y)){
-//                        neighbors.add(graph.getNode(x+1,y));
-//                    }
-//                    if (graph.isWalkable(x-1,y-1)){
-//                        neighbors.add(graph.getNode(x-1,y-1));
-//                    }
-//                }
-//                else if( dx==-1 && dy==0){
-//                    if (graph.isWalkable(x-1,y)){
-//                        neighbors.add(graph.getNode(x-1,y));
-//                    }
-//                    if (graph.isWalkable(x-1,y-1)){
-//                        neighbors.add(graph.getNode(x-1,y-1));
-//                    }
-//                    if (graph.isWalkable(x-1,y+1)){
-//                        neighbors.add(graph.getNode(x-1,y+1));
-//                    }
-//                }
-//                else if( dx==1 && dy==1 ){
-//                    if (graph.isWalkable(x,y+1)){
-//                        neighbors.add(graph.getNode(x,y+1));
-//                    }
-//                    if (graph.isWalkable(x+1,y)){
-//                        neighbors.add(graph.getNode(x+1,y));
-//                    }
-//                    if (graph.isWalkable(x-1,y+1)){
-//                        neighbors.add(graph.getNode(x-1,y+1));
-//                    }
-//                }
-//            }else{
-//                //水平,奇数行
-//                if( dx==1 && dy==0 ){
-//                    if (graph.isWalkable(x+1, y ))
-//                        neighbors.add(graph.getNode(x+1, y ));
-//                    if (!graph.isWalkable(x,y-1)){
-//                        neighbors.add(graph.getNode(x+1,y-1));
-//                    }
-//                    if (!graph.isWalkable(x,y+1)){
-//                        neighbors.add(graph.getNode(x+1,y+1));
-//                    }
-//                }
-//                else if( dx==-1 && dy==-1 ){
-//                    if (graph.isWalkable(x, y-1))
-//                        neighbors.add(graph.getNode(x, y-1));
-//                    if (!graph.isWalkable(x, y+1)){
-//                        neighbors.add(graph.getNode(x-1,y));
-//                    }
-//                    if (!graph.isWalkable(x+1,y)){
-//                        neighbors.add(graph.getNode(x+1,y-1));
-//                    }
-//                }
-//                else if( dx==-1 && dy==1 ){
-//                    if (graph.isWalkable(x,y+1))
-//                        neighbors.add(graph.getNode(x, y+1));
-//                    if (!graph.isWalkable(x+1, y)){
-//                        neighbors.add(graph.getNode(x+1,y+1));
-//                    }
-//                    if (!graph.isWalkable(x,y-1)){
-//                        neighbors.add(graph.getNode(x-1,y));
-//                    }
-//                }
-//                //对角
-//                else if( dx==0 && dy==-1 ){
-//                    if (graph.isWalkable(x+1,y-1)){
-//                        neighbors.add(graph.getNode(x+1,y-1));
-//                    }
-//                    if (graph.isWalkable(x+1,y)){
-//                        neighbors.add(graph.getNode(x+1,y));
-//                    }
-//                    if (graph.isWalkable(x,y-1)){
-//                        neighbors.add(graph.getNode(x,y-1));
-//                    }
-//                }
-//                else if( dx==-1 && dy==0){
-//                    if (graph.isWalkable(x-1,y)){
-//                        neighbors.add(graph.getNode(x-1,y));
-//                    }
-//                    if (graph.isWalkable(x,y-1)){
-//                        neighbors.add(graph.getNode(x,y-1));
-//                    }
-//                    if (graph.isWalkable(x,y+1)){
-//                        neighbors.add(graph.getNode(x,y+1));
-//                    }
-//                }
-//                else if( dx==0 && dy==1 ){
-//                    if (graph.isWalkable(x+1,y+1)){
-//                        neighbors.add(graph.getNode(x+1,y+1));
-//                    }
-//                    if (graph.isWalkable(x+1,y)){
-//                        neighbors.add(graph.getNode(x+1,y));
-//                    }
-//                    if (graph.isWalkable(x,y+1)){
-//                        neighbors.add(graph.getNode(x,y+1));
-//                    }
-//                }
-//            }
-            //is diag
 
 
         } else {
@@ -416,37 +273,44 @@ public class JPSDiagAlways_hexagon<T extends Node> extends JPS_hexagon<T> {
                         ||!graph.isWalkable(x-1,y-1) && graph.isWalkable(x,y-1)){
                     return neighbor;
                 }
-
+                return jump(graph.getNode(x+1,y),neighbor,goals);
             }else if(x>0 && y>0 && x<y){
                 if(!graph.isWalkable(x,y-1) && graph.isWalkable(x+1,y)
                         ||!graph.isWalkable(x-1,y) && graph.isWalkable(x,y+1)){
                     return neighbor;
                 }
+                return jump(graph.getNode(x+1,y+1),neighbor,goals);
             }else if(x<0 && y>0){
                 if(!graph.isWalkable(x+1,y) && graph.isWalkable(x+1,y+1)
                         ||!graph.isWalkable(x-1,y-1) && graph.isWalkable(x-1,y)){
                     return neighbor;
                 }
+                return jump(graph.getNode(x,y+1),neighbor,goals);
             }else if(x<0 && y<0 && x<y){
                 if(!graph.isWalkable(x,y+1) && graph.isWalkable(x-1,y+1)
                         ||!graph.isWalkable(x,y-1) && graph.isWalkable(x-1,y-1)){
                     return neighbor;
                 }
+                return jump(graph.getNode(x-1,y),neighbor,goals);
+
             }else if(x<0 && y<0 && x>y){
                 if(!graph.isWalkable(x+1,y) && graph.isWalkable(x,y-1)
                         ||!graph.isWalkable(x,y+1) && graph.isWalkable(x-1,y)){
                     return neighbor;
                 }
+                return jump(graph.getNode(x-1,y-1),neighbor,goals);
+
             }else if(x>0 && y>0){
                 if(!graph.isWalkable(x+1,y+1) && graph.isWalkable(x+1,y)
                         ||!graph.isWalkable(x-1,y) && graph.isWalkable(x-1,y-1)){
                     return neighbor;
                 }
+                return jump(graph.getNode(x,y-1),neighbor,goals);
+
             }
         }
+        return null;
 
-        // jump diagonally towards our goal
-        return jump(graph.getNode(neighbor.x + dx, neighbor.y + dy), neighbor, goals);
     }
 
     private  boolean isDiagonal(T node){
