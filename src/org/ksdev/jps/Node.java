@@ -9,6 +9,7 @@ public abstract class Node {
 
     boolean walkable = true;
 
+    boolean force = false;
     public Node(int x, int y) {
         this.x = x;
         this.y = y;
@@ -19,4 +20,11 @@ public abstract class Node {
 
     public void setWalkable(boolean walkable) { this.walkable = walkable; }
     public boolean isWalkable() { return walkable; }
+    public boolean isForce() {
+        return force;
+    }
+
+    public void setForce(boolean force) {
+        this.force = force;
+    }
 }
