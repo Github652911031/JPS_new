@@ -12,7 +12,7 @@ public class JPShexagonBaseTest {
     public JPS_hexagon<Tile> jps2;
     public List<List<Tile>> tileList2;
 
-    public void setup(Graph.Diagonal diagonal) {
+    public void setup() {
         Tile[][] tiles = new Tile[][]{
                 {new Tile(0, 0), new Tile(1, 0), new Tile(2, 0), new Tile(3, 0), new Tile(4, 0), new Tile(5, 0), new Tile(6, 0), new Tile(7, 0), new Tile(8, 0)},
                 {new Tile(0, 1), new Tile(1, 1), new Tile(2, 1), new Tile(3, 1), new Tile(4, 1), new Tile(5, 1), new Tile(6, 1), new Tile(7, 1), new Tile(8, 1)},
