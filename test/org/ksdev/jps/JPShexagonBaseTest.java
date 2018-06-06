@@ -23,10 +23,10 @@ public class JPShexagonBaseTest {
 
         tileList = JPSTestUtil.arraysToLists(tiles);
 
-        jps = JPS.JPSFactory.getJPS(new Graph<>(tileList), diagonal);
-
+//        jps = JPS.JPSFactory.getJPS(new Graph<>(tileList), diagonal);
+        jps = new JPSDiagAlways_hexagon<>(new Graph_hexagon<>(tileList));
         tileList2 = mapToTileList(map2);
-        jps2 = JPS.JPSFactory.getJPS(new Graph<>(tileList2), diagonal);
+        jps2 = new JPSDiagAlways_hexagon<>(new Graph_hexagon<>(tileList));
     }
 
     public List<List<Tile>> mapToTileList(String map) {
@@ -123,4 +123,5 @@ public class JPShexagonBaseTest {
                 tile.walkable = true;
             }
         }
+    }
 }
