@@ -1,11 +1,14 @@
-package org.ksdev.jps;
+package zy.jps;
+
+import org.ksdev.jps.Graph;
+import org.ksdev.jps.Node;
 
 import java.util.*;
 import java.util.function.BiFunction;
 
-public class Graph_hexagon<T extends Node>  {
+public class Graph_hexagon<T extends Node_hexagon>  {
     private List<T> nodes;
-    private int width;
+    private int scale;
 
 
 //    private BiFunction<Node, Node, Double> distance = (a, b) -> Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
@@ -15,25 +18,11 @@ public class Graph_hexagon<T extends Node>  {
      * By default, will use EUCLIDEAN for distance and heuristic calculations. You can set your own algorithm
      * if you would like to change this.
      */
-    public Graph_hexagon(List<List<T>> map) {
-        width = map.get(0).size();
-        nodes = new ArrayList<>(map.size() * map.get(0).size());
-
-        map.forEach(nodes::addAll);
+    public Graph_hexagon(List<T> map, int scale) {
+        this.scale = scale;
+        this.nodes = map;
     }
 
-    /**
-     * By default, will use EUCLIDEAN for distance and heuristic calculations. You can set your own algorithm
-     * if you would like to change this.
-     */
-    public Graph_hexagon(T[][] map) {
-        width = map[0].length;
-        nodes = new ArrayList<>(map.length * map[0].length);
-
-        for (T[] row : map) {
-            Collections.addAll(nodes, row);
-        }
-    }
 
     /**
      * @return List of all nodes in the graph.
@@ -44,6 +33,7 @@ public class Graph_hexagon<T extends Node>  {
         if (x < 0 || x >= width || y < 0 || y >= nodes.size() / width) {
             return null;
         }
+
         return nodes.get(x + y*width);
     }
 
