@@ -1,12 +1,14 @@
-package org.ksdev.jps;
+package zy.jps;
 
+import org.ksdev.jps.Node;
 import zy.jps.Graph_hexagon;
+import zy.jps.JPS_hexagon;
 
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class JPSDiagAlways_hexagon<T extends Node> extends JPS_hexagon<T> {
+public class JPSDiagAlways_hexagon<T extends Node_hexagon> extends JPS_hexagon<T> {
     public JPSDiagAlways_hexagon(Graph_hexagon<T> graph) { super(graph); }
 
 
@@ -20,7 +22,7 @@ public class JPSDiagAlways_hexagon<T extends Node> extends JPS_hexagon<T> {
     protected Set<T> findNeighbors(T node, Map<T, T> parentMap) {
         Set<T> neighbors = new HashSet<>();
 
-        Node parent = parentMap.get(node);
+        Node_hexagon parent = parentMap.get(node);
 
 
         // directed pruning: can ignore most neighbors, unless forced.

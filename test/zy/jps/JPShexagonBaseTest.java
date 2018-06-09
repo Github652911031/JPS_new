@@ -1,47 +1,46 @@
-package org.ksdev.jps;
+package zy.jps;
 
 import org.junit.After;
-import zy.jps.Graph_hexagon;
+import org.ksdev.jps.JPSTestUtil;
+import org.ksdev.jps.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class JPShexagonBaseTest {
-    public JPS_hexagon<Tile> jps;
-    public List<List<Tile>> tileList;
+    public JPS_hexagon<Tile_hexagon> jps;
+    public List<List<Tile_hexagon>> tileList;
 
-    public JPS_hexagon<Tile> jps2;
-    public List<List<Tile>> tileList2;
+    public JPS_hexagon<Tile_hexagon> jps2;
+    public List<List<Tile_hexagon>> tileList2;
 
     public void setup() {
-        Tile[][] tiles = new Tile[][]{
-                {new Tile(0, 0), new Tile(1, 0), new Tile(2, 0), new Tile(3, 0), new Tile(4, 0), new Tile(5, 0), new Tile(6, 0), new Tile(7, 0), new Tile(8, 0)},
-                {new Tile(0, 1), new Tile(1, 1), new Tile(2, 1), new Tile(3, 1), new Tile(4, 1), new Tile(5, 1), new Tile(6, 1), new Tile(7, 1), new Tile(8, 1)},
-                {new Tile(0, 2), new Tile(1, 2), new Tile(2, 2), new Tile(3, 2), new Tile(4, 2), new Tile(5, 2), new Tile(6, 2), new Tile(7, 2), new Tile(8, 2)},
-                {new Tile(0, 3), new Tile(1, 3), new Tile(2, 3), new Tile(3, 3), new Tile(4, 3), new Tile(5, 3), new Tile(6, 3), new Tile(7, 3), new Tile(8, 3)},
-                {new Tile(0, 4), new Tile(1, 4), new Tile(2, 4), new Tile(3, 4), new Tile(4, 4), new Tile(5, 4), new Tile(6, 4), new Tile(7, 4), new Tile(8, 4)}
+        Tile_hexagon[][] tiles = new Tile_hexagon[][]{
+                {new Tile_hexagon(-1, -1), new Tile_hexagon(0, -1), new Tile_hexagon(1, -1)},
+                {new Tile_hexagon(-1, 0), new Tile_hexagon(0, 0), new Tile_hexagon(1, 0)},
+                {new Tile_hexagon(-1, 1), new Tile_hexagon(0, 1), new Tile_hexagon(1, 1)}
         };
 
-        tileList = JPSTestUtil.arraysToLists(tiles);
+        tileList = JPSTestUtil_hexagon.arraysToLists(tiles);
 
-//        jps = JPS.JPSFactory.getJPS(new Graph<>(tileList), diagonal);
-        jps = new JPSDiagAlways_hexagon<>(new Graph_hexagon<>(tileList));
-        tileList2 = mapToTileList(map2);
-        jps2 = new JPSDiagAlways_hexagon<>(new Graph_hexagon<>(tileList));
+//        jps = JPS.JPSFactory.getJPS(new Graph<>(Tile_hexagonList), diagonal);
+        jps = new JPSDiagAlways_hexagon<>(new Graph_hexagon<>(tileList,-1,1,-1,1));
+//        tileList2 = mapToTileList(map2);
+//        jps2 = new JPSDiagAlways_hexagon<>(new Graph_hexagon<>(tileList));
     }
 
-    public List<List<Tile>> mapToTileList(String map) {
+    public List<List<Tile_hexagon>> mapToTileList(String map) {
         String[] columns = map.split("\n");
         int x = 0;
         int y = 0;
-        List<List<Tile>> tiles = new ArrayList<>();
+        List<List<Tile_hexagon>> tiles = new ArrayList<>();
         for (String column : columns) {
             String[] row = column.split(" ");
             //System.out.println(row[15]);
             x = 0;
-            List<Tile> tileRow = new ArrayList<>();
+            List<Tile_hexagon> tileRow = new ArrayList<>();
             for (String s : row) {
-                Tile tile = new Tile(x, y);
+                Tile_hexagon tile = new Tile_hexagon(x, y);
                 if (s.contains("1")) tile.setWalkable(false);
                 tileRow.add(tile);
                 x++;
@@ -119,8 +118,8 @@ public class JPShexagonBaseTest {
 
     @After
     public void reset() {
-        for (List<Tile> list : tileList) {
-            for (Tile tile : list) {
+        for (List<Tile_hexagon> list : tileList) {
+            for (Tile_hexagon tile : list) {
                 tile.walkable = true;
             }
         }

@@ -1,12 +1,14 @@
-package org.ksdev.jps;
+package zy.jps;
 
+import org.ksdev.jps.*;
 import zy.jps.Graph_hexagon;
+import zy.jps.Node_hexagon;
 
 import java.util.*;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
-public abstract class JPS_hexagon<T extends Node> {
+public abstract class JPS_hexagon<T extends Node_hexagon> {
 
     protected final Graph_hexagon<T> graph;
     public JPS_hexagon(Graph_hexagon<T> graph){

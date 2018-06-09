@@ -8,19 +8,26 @@ import java.util.function.BiFunction;
 
 public class Graph_hexagon<T extends Node_hexagon>  {
     private List<T> nodes;
-    private int scale;
+    private int x_start;
+    private int x_end;
+    private int y_start;
+    private int y_end;
 
 
 //    private BiFunction<Node, Node, Double> distance = (a, b) -> Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
-    private BiFunction<Node, Node, Double> distance = (a, b) -> Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y,2)*3/4);
-    private BiFunction<Node, Node, Double> heuristic = (a, b) -> Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y,2)*3/4);
+    private BiFunction<Node_hexagon, Node_hexagon, Double> distance = (a, b) -> Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y,2)*3/4);
+    private BiFunction<Node_hexagon, Node_hexagon, Double> heuristic = (a, b) -> Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y,2)*3/4);
     /**
      * By default, will use EUCLIDEAN for distance and heuristic calculations. You can set your own algorithm
      * if you would like to change this.
      */
-    public Graph_hexagon(List<T> map, int scale) {
-        this.scale = scale;
-        this.nodes = map;
+    public Graph_hexagon(List<List<T>> map, int x_start, int x_end, int y_start, int y_end) {
+        this.x_start = x_start; //起始x坐标
+        this.x_end = x_end; //终止x坐标
+        this.y_start = y_start; //起始y坐标
+        this.y_end = y_end;  //终止y坐标
+        nodes = new ArrayList<>((x_end - x_start + 1)* (y_end - y_start + 1));
+        map.forEach(nodes::addAll);
     }
 
 
@@ -30,25 +37,25 @@ public class Graph_hexagon<T extends Node_hexagon>  {
     public Collection<T> getNodes() { return nodes; }
 
     public T getNode(int x, int y) {
-        if (x < 0 || x >= width || y < 0 || y >= nodes.size() / width) {
+        if (x < x_start || x > x_end || y < y_start || y > y_end) {
             return null;
         }
 
-        return nodes.get(x + y*width);
+        return nodes.get((y-y_start)*(x_end - x_start + 1) + x - x_start);
     }
 
     /**
      * Given two adjacent nodes, returns the distance between them.
      * @return The distance between the two nodes given.
      */
-    public double getDistance(Node a, Node b) { return distance.apply(a, b); }
+    public double getDistance(Node_hexagon a, Node_hexagon b) { return distance.apply(a, b); }
 
     /**
      * Given two nodes, returns the estimated distance between them. Optimizing this is the best way to improve
      * performance of your search time.
      * @return Estimated distance between the two given nodes.
      */
-    public double getHeuristicDistance(Node a, Node b) { return heuristic.apply(a, b); }
+    public double getHeuristicDistance(Node_hexagon a, Node_hexagon b) { return heuristic.apply(a, b); }
 
     /**
      * By default, we return all reachable diagonal neighbors that have no obstacles blocking us.
@@ -147,22 +154,10 @@ public class Graph_hexagon<T extends Node_hexagon>  {
     }
 
     public boolean isWalkable(int x, int y) {
-        return x >= 0 && x < width && y >= 0 && y < nodes.size() / width && getNode(x, y).walkable;
+        return x >= x_start && x <= x_end && y >= y_start && y <= y_end && getNode(x, y).walkable;
     }
 
-    /**
-     * If you would like to define your own Distance Algorithm not included.
-     */
-    public void setDistanceAlgo(BiFunction<Node, Node, Double> distance) {
-        this.distance = distance;
-    }
 
-    /**
-     * If you would like to define your own Heuristic Algorithm not included.
-     */
-    public void setHeuristicAlgo(BiFunction<Node, Node, Double> heuristic) {
-        this.heuristic = heuristic;
-    }
 
 
 
