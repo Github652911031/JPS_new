@@ -104,7 +104,7 @@ public abstract class JPS_hexagon<T extends Node_hexagon> {
 
             // don't add a node we have already gotten to quicker
             if (jumpNode == null || closed.contains(jumpNode)) continue;
-
+            System.out.println("jump node :"+jumpNode.x+","+jumpNode.y);
             // determine the jumpNode's distance from the start along the current path
             d = graph.getDistance(jumpNode, node);
             ng = gMap.getOrDefault(node, 0d) + d;

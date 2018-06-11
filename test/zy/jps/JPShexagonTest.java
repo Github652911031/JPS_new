@@ -17,18 +17,20 @@ public class JPShexagonTest extends JPShexagonBaseTest {
 
     @Test
     public void twoObstaclesAndPath() throws ExecutionException, InterruptedException {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                tileList.get(i).get(j).walkable = false;
-            }
-        }
-        Tile_hexagon start = tileList.get(1).get(1);
+//        for (int i = 0; i < 3; i++) {
+//            for (int j = 0; j < 3; j++) {
+//                tileList.get(i).get(j).walkable = false;
+//            }
+//        }
+        tileList.get(2).get(2).walkable = false;
+        tileList.get(3).get(2).walkable = false;
+        Tile_hexagon start = tileList.get(2).get(0);
         start.walkable = true;
-        Tile_hexagon end = tileList.get(0).get(2);
+        Tile_hexagon end = tileList.get(2).get(4);
         end.walkable = true;
 
 
-        tileList.get(0).get(1).walkable = true;
+//        tileList.get(0).get(1).walkable = true;
 //        tileList.get(1).get(4).walkable = false;
 
 //        Future<Queue<Tile>> futurePath = jps.findPath(start, end);

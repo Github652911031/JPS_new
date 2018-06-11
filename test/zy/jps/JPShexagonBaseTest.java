@@ -16,15 +16,17 @@ public class JPShexagonBaseTest {
 
     public void setup() {
         Tile_hexagon[][] tiles = new Tile_hexagon[][]{
-                {new Tile_hexagon(-1, -1), new Tile_hexagon(0, -1), new Tile_hexagon(1, -1)},
-                {new Tile_hexagon(-1, 0), new Tile_hexagon(0, 0), new Tile_hexagon(1, 0)},
-                {new Tile_hexagon(-1, 1), new Tile_hexagon(0, 1), new Tile_hexagon(1, 1)}
+                {new Tile_hexagon(0, -2), new Tile_hexagon(1, -2), new Tile_hexagon(2, -2),new Tile_hexagon(3, -2),new Tile_hexagon(4, -2),new Tile_hexagon(5, -2)},
+                {new Tile_hexagon(0, -1), new Tile_hexagon(1, -1), new Tile_hexagon(2, -1),new Tile_hexagon(3, -1),new Tile_hexagon(4, -1),new Tile_hexagon(5, -1)},
+                {new Tile_hexagon(0, 0), new Tile_hexagon(1, 0), new Tile_hexagon(2, 0),new Tile_hexagon(3, 0),new Tile_hexagon(4, 0),new Tile_hexagon(5, 0)},
+                {new Tile_hexagon(0, 1), new Tile_hexagon(1, 1), new Tile_hexagon(2, 1),new Tile_hexagon(3, 1),new Tile_hexagon(4, 1),new Tile_hexagon(5, 1)},
+                {new Tile_hexagon(0, 2), new Tile_hexagon(1, 2), new Tile_hexagon(2, 2),new Tile_hexagon(3, 2),new Tile_hexagon(4, 2),new Tile_hexagon(5, 2)}
         };
 
         tileList = JPSTestUtil_hexagon.arraysToLists(tiles);
 
 //        jps = JPS.JPSFactory.getJPS(new Graph<>(Tile_hexagonList), diagonal);
-        jps = new JPSDiagAlways_hexagon<>(new Graph_hexagon<>(tileList,-1,1,-1,1));
+        jps = new JPSDiagAlways_hexagon<>(new Graph_hexagon<>(tileList,0,5,-2,2));
 //        tileList2 = mapToTileList(map2);
 //        jps2 = new JPSDiagAlways_hexagon<>(new Graph_hexagon<>(tileList));
     }
