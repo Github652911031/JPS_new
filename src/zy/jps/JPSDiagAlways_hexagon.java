@@ -304,7 +304,7 @@ public class JPSDiagAlways_hexagon<T extends Node_hexagon> extends JPS_hexagon<T
                 }
                 return jump(graph.getNode(x-1,y-1),neighbor,goals);
 
-            }else if(x>0 && y>0){
+            }else if(x>0 && y<0){
                 if(!graph.isWalkable(x+1,y+1) && graph.isWalkable(x+1,y)
                         ||!graph.isWalkable(x-1,y) && graph.isWalkable(x-1,y-1)){
                     return neighbor;

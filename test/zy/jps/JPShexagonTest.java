@@ -23,10 +23,10 @@ public class JPShexagonTest extends JPShexagonBaseTest {
 //            }
 //        }
         tileList.get(2).get(2).walkable = false;
-        tileList.get(3).get(2).walkable = false;
+        tileList.get(3).get(4).walkable = false;
         Tile_hexagon start = tileList.get(2).get(0);
         start.walkable = true;
-        Tile_hexagon end = tileList.get(2).get(4);
+        Tile_hexagon end = tileList.get(2).get(5);
         end.walkable = true;
 
 
